@@ -1,21 +1,21 @@
+import {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import ItemDetail from './ItemDetail'
 
 function ItemDetailContainer () {
-  const [detail, setDetail] = useState()
-  const { id } = useParams()
-  
-  useEffect(() => {
-    fetch(`https://66d63577f5859a704268a79b.mockapi.io/products/${id}`)
-      .then(res => res.json())
-      .then(res => setDetail(res))
-  }, [id])
+    const [detail, setDetail] =useState([])
+    const {id} = useParams()
+    console.log(id)
+    useEffect(()=> {
+        fetch (`https://dummyjson.com/products/${id}`)
+        .then (res =>res.json())
+        .then ( res => setDetail(res))
+    }, [id])
 
-  return (
-    <div>
-      <p>{detail?.name}</p>
-    </div>
-  )
+    return (
+       <ItemDetail detail={detail} />
+    )
+    
 }
 
 export default ItemDetailContainer

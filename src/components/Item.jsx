@@ -1,33 +1,32 @@
-/* eslint-disable react/prop-types */
+import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
-import Button from 'react-bootstrap/Button'
-import { Link } from 'react-router-dom'
 
-function Item ({ item }) {
+import { Link } from 'react-router-dom';
+
+function Item({item}) {
   return (
-    <Col>
-      <Card>
-        <Card.Img variant="top" src={item.image} />
+    <Col xs={12} md={6} lg={4}>
+      <Card style={{ width: '18rem' }}>
+        <Card.Img variant="top" src={item.thumbnail} />
         <Card.Body>
-          <Card.Title>{item.name}</Card.Title>
+          <Card.Title>{item.title}</Card.Title>
           <Card.Text>
             {item.category}
           </Card.Text>
           <Card.Text>
             {item.description}
           </Card.Text>
+           <Button variant="outline-dark"
+           as={Link}
+           to={`/item/${item.id}`}
+           >
+            Ver mas
+            </Button>
         </Card.Body>
-        <Button 
-          variant="dark"
-          as={Link}
-          to={`/product/${item.id}`}
-        >
-          more info
-        </Button>
       </Card>
     </Col>
-  )
+  );
 }
 
 export default Item

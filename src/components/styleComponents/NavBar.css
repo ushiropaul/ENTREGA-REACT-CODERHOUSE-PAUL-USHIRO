@@ -1,0 +1,10 @@
+
+
+.header{
+    position: fixed;
+    width: 100%;
+    top: 0rem;
+    left: 0rem;
+    z-index: 9999;
+    background-color: brown;
+}
