@@ -1,17 +1,18 @@
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
 import Item from './Item'
-import './styleComponents/ItemList.css'
 
-function ItemList ({items}){
+function ItemList({ items }) {
+
     return (
-        <Container className="ItemsContainer">
-            <Row xs={1} md={4} className="g-4 align-items-stretch">
-                {items.map(item => ( <Item item={item} key={item.id} />
-                ) ) }
-            </Row>
-        </Container>
+        <>
+            <div className="flex flex-wrap justify-center gap-6 mt-14 px-6 xl:px-14 2xl:px-20">
+    {items.map((item) => (
+        <Item item={item} key={item.id} />
+    ))}
+</div>
+
+        </>
     )
+
 }
 
-export default ItemList
+export default ItemList;

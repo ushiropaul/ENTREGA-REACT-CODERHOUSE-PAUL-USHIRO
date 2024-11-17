@@ -1,22 +1,39 @@
-import { useState } from 'react'
+import React, { useState, useImperativeHandle, forwardRef } from "react";
 
-function ItemCount() {
-    const [count, setCount] = useState(0)
-    if(count < 0) {
-        setCount(0)
-    }
-    const handleAdd = () => setCount(count + 1)
-    const handleSub = () => setCount(count - 1)
+function ItemCount(props, ref) {
+    const [num, setNum] = useState(1);
+
+
+    const checkNegative = () => {
+        if (num === 1) {
+            return 1;
+        } else {
+            return num - 1;
+        }
+    };
+
+
+    useImperativeHandle(ref, () => ({
+        itemCount: () => num,
+    }));
 
     return (
-        <div>
-            <p>{count}</p>
+        <>
 
-            <button onClick={handleSub}>-</button>
-            <button>agregar al carrito</button>
-            <button onClick={handleAdd}>+</button>
-        </div>
-    )
+
+
+            <div className='flex items-center justify-center p-1 border shadow-md rounded-md mr-4 bg-blue'>
+
+                <img className='h-10 cursor-pointer' src='/img/leftArrow.png' onClick={() => setNum(checkNegative())} />
+                <p className="text-blue-500 text-5xl select-none">{num}</p>
+                <img className='h-10 cursor-pointer' src='/img/rightArrow.png' onClick={() => setNum(num + 1)} />
+
+            </div>
+
+        </>
+    );
 }
 
-export default ItemCount
+
+
+export default forwardRef(ItemCount);

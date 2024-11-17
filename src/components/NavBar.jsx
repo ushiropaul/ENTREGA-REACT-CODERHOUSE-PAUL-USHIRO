@@ -1,25 +1,36 @@
-import Container from 'react-bootstrap/Container'
-import Nav from 'react-bootstrap/Nav'
-import Navbar from 'react-bootstrap/Navbar'
-import CartWidget from './cartWidget/CartWidget'
+import React from 'react';
+import CartWidget from './CartWidget.jsx'
 import { Link } from 'react-router-dom'
-import './styleComponents/NavBar.css';
 
-function NavBar(){
+function NavBar() {
     return (
-        <Navbar className='header' bg="dark" data-bs-theme="dark">
-            <Container>
-                <Navbar.Brand as={Link} to='/'>Vita Market</Navbar.Brand>
-                <Nav className='me-auto'>
-                    <Nav.Link as={Link} to='/category/fragrances'>Fragrances</Nav.Link>
-                    <Nav.Link as={Link} to='/category/beauty'>Beauty</Nav.Link>
-                    <Nav.Link as={Link} to='/category/furniture'>Furniture</Nav.Link>
-                    <Nav.Link as={Link} to='/category/groceries'>Groceries</Nav.Link>
-                </Nav>
-                <CartWidget />
-            </Container>
-        </Navbar>  
-    )
+        <nav className=' bg-opacity-75 stroke-1 flex flex-row justify-between w-scream h-40'>
+
+            <div className="flex flex-col ml-28 mt-6 lg:ml-36 xl:ml-56 2xl:ml-64">
+                <Link to='/' className='flex flex-row justify-between'>
+                    <h1 className="font-bebas text-black text-4xl">TECH PLACE</h1>
+
+                </Link>
+
+                <ul className='flex justify-between mt-3 ml-1 '>
+                    <li>
+                        <Link to='/category/phones' className='text-black text-lg hover:text-gray-700 focus:text-gray-400 mr-4' >Teléfonos</Link>
+                    </li>
+                    <li>
+                        <Link to='/category/laptops' className='text-black text-lg hover:text-gray-700 focus:text-gray-400 mr-4' >Laptops</Link>
+                    </li>
+                </ul>
+            </div>
+
+            <div className="flex flex-col mr-28 mt-4 lg:mr-36 xl:mr-56 2xl:mr-64">
+                <div className='flex flex-row mb-4 mt-2' >
+                    <Link to='/cart' className='text-current ' ><CartWidget /></Link>
+                </div>
+            </div>
+        </nav>
+
+
+    );
 }
 
-export default NavBar
+export default NavBar;
