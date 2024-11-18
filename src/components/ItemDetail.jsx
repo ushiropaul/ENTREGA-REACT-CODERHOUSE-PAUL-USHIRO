@@ -58,7 +58,6 @@ function ItemDetail({ item }) {
                     ) : (
                         <>
                             <del className="text-red-500 text-4xl">Precio: ${item.precio}</del>
-                            <p className="text-blue-400 text-4xl">Descuento: ${item.precioDescuento}</p>
                         </>
                     )}
                     <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mt-8">

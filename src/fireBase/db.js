@@ -1,7 +1,7 @@
 import { getFirestore, collection, getDocs, getDoc, doc,  addDoc } from "firebase/firestore";
 import { app } from "./config";
 
-const db = getFirestore(app)
+export const db = getFirestore(app)
 
 export const querySnapshot = await getDocs(collection(db, "products"));
 
