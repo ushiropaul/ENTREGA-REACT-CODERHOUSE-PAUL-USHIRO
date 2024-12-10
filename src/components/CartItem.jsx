@@ -14,12 +14,6 @@ function CartItem({ item }) {
     return (
         <li className="flex flex-col lg:flex-row items-center justify-between mt-4 pb-3 border-b border-black space-y-4 lg:space-y-0">
             <p className="text-lg lg:text-xl text-center lg:text-left lg:w-1/4">{item.nombre}</p>
-            {item.precioDescuento !== undefined && (
-                <p className="text-lg lg:text-xl lg:w-1/4 text-center">${item.precioDescuento}</p>
-            )}
-            {item.precioDescuento === undefined && (
-                <p className="text-lg lg:text-xl lg:w-1/4 text-center">${item.precio}</p>
-            )}
             <div className="flex items-center justify-center space-x-4 lg:w-1/4">
                 <img
                     className="h-6 cursor-pointer"
@@ -35,12 +29,6 @@ function CartItem({ item }) {
                     onClick={() => setCount(count + 1)}
                 />
             </div>
-            {item.precioDescuento !== undefined && (
-                <p className="text-lg lg:text-xl lg:w-1/4 text-center">${item.precioDescuento * count}</p>
-            )}
-            {item.precioDescuento === undefined && (
-                <p className="text-lg lg:text-xl lg:w-1/4 text-center">${item.precio * count}</p>
-            )}
             <button
                 className="btn bg-red-500 text-white rounded-lg font-semibold py-2 px-4 hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-500"
                 onClick={() => itemCartRemove(item)}

@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import ItemList from './ItemList'
 import { useParams } from 'react-router-dom'
-import { querySnapshot } from "../firebase/db.js"
+import { querySnapshot } from "./../fireBase/db.js"
 
 
 function ItemListContainer() {

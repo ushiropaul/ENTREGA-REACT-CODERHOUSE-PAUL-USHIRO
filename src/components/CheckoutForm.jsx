@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { registroCompras } from "../firebase/db";
+import { registroCompras } from "./../fireBase/db"; // Función para registrar en Firestore
 import { CartContext } from '../contexts/cartContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -24,12 +24,28 @@ function CheckoutForm() {
         return id;
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const orderId = generateUniqueId(); // Generar ID único
-        registroCompras({ cart, formData, orderId }); // Registrar la compra con el ID
-        clearCart();
-        navigate("/CompraExitosa", { state: { orderId } }); // Pasar el ID como estado
+
+        // Crear el objeto de compra con información adicional
+        const compra = {
+            cart, // Detalles del carrito
+            formData, // Información del cliente
+            orderId, // ID único de la compra
+            date: new Date().toISOString(), // Fecha de la compra
+        };
+
+        try {
+            // Registrar la compra en Firestore
+            await registroCompras(compra);
+            console.log("Compra registrada exitosamente:", compra);
+            clearCart(); // Limpiar el carrito después de la compra
+            navigate("/CompraExitosa", { state: { orderId } }); // Pasar el ID como estado
+        } catch (error) {
+            console.error("Error al registrar la compra:", error);
+            alert("Ocurrió un error al completar tu compra. Por favor, inténtalo de nuevo.");
+        }
     };
 
     const handleChange = (e) => {
@@ -98,4 +114,3 @@ function CheckoutForm() {
 }
 
 export default CheckoutForm;
-

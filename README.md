@@ -1,6 +1,6 @@
-# 🛒 E-commerce SPA con React, Vite, TailwindCSS y Firebase
+# 🛒 E-commerce con React, Vite, TailwindCSS y Firebase
 
-Este es un proyecto de E-commerce desarrollado como una **SPA (Single Page Application)** utilizando **React** y **Vite** para el frontend. Se utiliza **TailwindCSS** para los estilos, **React Router** para el enrutamiento, y **Firebase** como backend.
+Este es un proyecto de E-commerce desarrollado utilizando **React** y **Vite** para el frontend. Se utiliza **TailwindCSS** para los estilos, **React Router** para el enrutamiento, y **Firebase** como backend.
 
 ---
 
@@ -28,7 +28,7 @@ Sigue estos pasos para configurar y ejecutar el proyecto en tu máquina local:
 
 1️⃣ Clonar el repositorio
 
-bash -- git clone https://github.com/ForecastSnow/reactTime.git
+git clone 'https://github.com/ushiropaul/ENTREGA-REACT-CODERHOUSE-PAUL-USHIRO.git'
 
 2️⃣ Instalar dependencias
 

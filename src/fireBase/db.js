@@ -10,7 +10,7 @@ querySnapshot.forEach((doc) => {
 
 })
 
-export const queryByIdSnapshot = await getDocs
+export const queryByIdSnapshot = getDocs
 
 
 
