@@ -14,10 +14,19 @@ function NavBar() {
 
                 <ul className='flex justify-between mt-3 ml-1 '>
                     <li>
+                        <Link to='/' className='text-black text-lg hover:text-gray-700 focus:text-gray-400 mr-4' >Todos</Link>
+                    </li>
+                    <li>
+                        <Link to='/category/consoles' className='text-black text-lg hover:text-gray-700 focus:text-gray-400 mr-4' >Consolas</Link>
+                    </li>
+                    <li>
                         <Link to='/category/phones' className='text-black text-lg hover:text-gray-700 focus:text-gray-400 mr-4' >Teléfonos</Link>
                     </li>
                     <li>
                         <Link to='/category/laptops' className='text-black text-lg hover:text-gray-700 focus:text-gray-400 mr-4' >Laptops</Link>
+                    </li>
+                    <li>
+                        <Link to='/category/periferics' className='text-black text-lg hover:text-gray-700 focus:text-gray-400 mr-4' >Perifèricos</Link>
                     </li>
                 </ul>
             </div>

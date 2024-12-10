@@ -28,10 +28,15 @@ function ItemListContainer() {
             getProducts().then(res => setItems(res.filter(item => item.categoria == 'laptops')));
             return;
         }
-        if (category == 'offers') {
-            getProducts().then(res => setItems(res.filter(item => item.descuento == true)));
+        if (category == 'consoles') {
+            getProducts().then(res => setItems(res.filter(item => item.categoria == 'consoles')));
             return;
         }
+        if (category == 'periferics') {
+            getProducts().then(res => setItems(res.filter(item => item.categoria == 'periferics')));
+            return;
+        }
+        
 
 
     }, [category]);
